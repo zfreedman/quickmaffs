@@ -6,6 +6,12 @@ import App from "components/app";
 import MathDisplay from "components/mathDisplay";
 import MathInput from "components/mathInput";
 
+// used in beforeEach and in each test scope
+let wrapped;
+beforeEach(() => {
+  wrapped = shallow(<App />);
+});
+
 it ("shows a math display", () => {
   // without enzyme
   // const div = document.createElement("div");
@@ -14,11 +20,9 @@ it ("shows a math display", () => {
   // ReactDOM.unmountComponentAtNode(div);
 
   // with enzyme
-  const wrapped = shallow(<App />);
   expect(wrapped.find(MathDisplay).length).toEqual(1);
 });
 
 it ("shows a math input", () => {
-  const wrapped = shallow(<App />);
   expect(wrapped.find(MathInput).length).toEqual(1);
 });
