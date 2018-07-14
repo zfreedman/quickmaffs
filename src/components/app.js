@@ -1,7 +1,7 @@
 import React from "react";
 
-import MathDisplay from "./mathDisplay";
-import MathInput from "./mathInput";
+import MathDisplay from "components/mathDisplay";
+import MathInput from "components/mathInput";
 
 export default () => {
   return (

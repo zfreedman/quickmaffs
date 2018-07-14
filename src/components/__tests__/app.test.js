@@ -2,9 +2,9 @@ import React from "react";
 // import ReactDOM from "react-dom";
 import {shallow} from "enzyme";
 
-import App from "../app";
-import MathDisplay from "../mathDisplay";
-import MathInput from "../mathInput";
+import App from "components/app";
+import MathDisplay from "components/mathDisplay";
+import MathInput from "components/mathInput";
 
 it ("shows a math display", () => {
   // without enzyme
