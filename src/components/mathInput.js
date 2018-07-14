@@ -1,9 +1,11 @@
 import React from "react";
 
-export default () => {
-  return (
-    <div>
-      Enter some input here
-    </div>
-  )
+export default class MathInput extends React.Component {
+  render() {
+    return (
+      <div>
+        <input placeholder="69" />
+      </div>
+    );
+  }
 };
