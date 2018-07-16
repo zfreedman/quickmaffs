@@ -1,4 +1,3 @@
-"use strict";
 import React from "react";
 
 export default class MathInput extends React.Component {
@@ -12,10 +11,11 @@ export default class MathInput extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="mathInput">
         <input
           onChange={this.handleChange}
           placeholder="69"
+          type="number"
           value={this.state.input}
         />
       </div>
