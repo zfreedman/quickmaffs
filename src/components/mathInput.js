@@ -14,6 +14,7 @@ export default class MathInput extends React.Component {
       <div className="mathInput">
         <input
           onChange={this.handleChange}
+          onKeyDown={this.handleKeyDown}
           placeholder="69"
           type="number"
           value={this.state.input}
@@ -24,5 +25,12 @@ export default class MathInput extends React.Component {
 
   handleChange = event => {
     this.setState({input: event.target.value});
+  };
+
+  handleKeyDown = event => {
+    if (event.keyCode === 13 && this.state.input !== "") {
+      this.setState({input: ""});
+      console.log("enter");
+    }
   };
 };
