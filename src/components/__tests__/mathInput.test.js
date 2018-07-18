@@ -1,10 +1,16 @@
 import React from "react";
 import { mount } from "enzyme";
+
 import MathInput from "components/mathInput";
+import Root from "root";
 
 let wrapped;
 beforeEach(() => {
-  wrapped = mount(<MathInput />);
+  wrapped = mount(
+    <Root>
+      <MathInput />
+    </Root>
+  );
 });
 
 afterEach(() => {

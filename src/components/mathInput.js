@@ -1,6 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
+import * as actions from "actions";
 
-export default class MathInput extends React.Component {
+class MathInput extends React.Component {
   constructor(props) {
     super(props);
 
@@ -29,8 +31,10 @@ export default class MathInput extends React.Component {
 
   handleKeyDown = event => {
     if (event.keyCode === 13 && this.state.input !== "") {
+      this.props.submitAnswer(this.state.input);
       this.setState({input: ""});
-      console.log("enter");
     }
   };
 };
+
+export default connect(null, actions)(MathInput);
