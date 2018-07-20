@@ -7,11 +7,40 @@
 body {
 }
 
+.mathInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .mathInput > input {
   text-align: center;
 }
 .mathInput > input::-webkit-outer-spin-button,
 .mathInput > input::-webkit-inner-spin-button {
+  margin: 0;
   -webkit-appearance: none;
-  margin: 0;  
+}
+
+.mathKey {
+  align-items: center;
+  background-color: black;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  margin: 5px;
+  outline: none;
+  width: 50px;
+}
+.mathKey:active {
+  background-color: white;
+  color: black;
+}
+
+.mathKeyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 180px;
 }

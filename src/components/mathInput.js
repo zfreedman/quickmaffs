@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
+
 import * as actions from "actions";
+import MathKeyboard from "components/mathKeyboard";
 
 class MathInput extends React.Component {
   constructor(props) {
@@ -21,6 +23,7 @@ class MathInput extends React.Component {
           type="number"
           value={this.state.input}
         />
+        <MathKeyboard />
       </div>
     );
   }
