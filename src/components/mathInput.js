@@ -34,7 +34,7 @@ class MathInput extends React.Component {
 
   handleKeyDown = event => {
     if (event.keyCode === 13 && this.state.input !== "") {
-      this.props.submitAnswer(this.state.input);
+      this.props.handleInputSubmit(this.state.input);
       this.setState({input: ""});
     }
   };

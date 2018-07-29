@@ -1,15 +1,19 @@
 import React from "react";
-// import ReactDOM from "react-dom";
-import {shallow} from "enzyme";
+import { mount } from "enzyme";
 
 import App from "components/app";
 import MathDisplay from "components/mathDisplay";
 import MathInput from "components/mathInput";
+import Root from "root";
 
 // used in beforeEach and in each test scope
 let wrapped;
 beforeEach(() => {
-  wrapped = shallow(<App />);
+  wrapped = mount(
+    <Root>
+      <App />
+    </Root>
+  );
 });
 
 it ("shows a math display", () => {
