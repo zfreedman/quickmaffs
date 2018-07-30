@@ -3,9 +3,10 @@ import { ADD_SUBMISSION } from "actions/types";
 
 describe("addSubmission", () => {
   const answer = 731;
-  let count = 0;
   const expression = "730 + 2";
   const solution = eval(expression);
+  let count = 0;
+  
   let action;
   beforeEach(() => {
     action = addSubmission(answer, count, expression);
@@ -18,8 +19,8 @@ describe("addSubmission", () => {
   it("has the right payload", () => {
     expect(action.payload).toEqual({
       answer,
-      id: count,
       expression,
+      id: count,
       solution
     });
   });
