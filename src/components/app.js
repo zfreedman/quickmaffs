@@ -43,36 +43,12 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    // set operations
-    let { operands, operations } = this.getMath(
-      this.state.opList, this.state.maxNumber
-    );
-    let expression = this.getExpressionFromMath(operations, operands);
     this.setState(
-      { expression, operands, operations }
+      this.getRandomMath(
+        this.state.opList, this.state.maxNumber
+      )
     );
   }
-
-  getExpressionFromMath = (operations, operands, useSpace = true) => {
-    let expression = `${operands[0]} `;
-    for (let i = 1; i < operands.length; ++i) {
-      expression += `${operations[i - 1]} ${operands[i]}`;
-      expression += i < operations.length - 1 ? " " : "";
-    }
-    return expression;
-  };
-
-  getMath = (opList, maxNumber) => {
-    const op_index = this.getRandomInt(opList.length);
-    const op = opList[op_index];
-
-    const left = this.getRandomInt(maxNumber + 1);
-    const right = this.getRandomInt(maxNumber + 1);
-    return {
-      operands: [left, right],
-      operations: [op],
-    };
-  };
 
   getRandomInt = maxNumber => {
     return Math.floor(
@@ -82,9 +58,34 @@ class App extends React.Component {
     );
   };
 
+  getRandomMath = (opList, maxNumber) => {
+    const op_index = this.getRandomInt(opList.length);
+    const op = opList[op_index];
+
+    const left = this.getRandomInt(maxNumber + 1);
+    const right = this.getRandomInt(maxNumber + 1);
+
+    const operands = [left, right];
+    const operations = [op];
+
+    let expression = `${operands[0]} `;
+    for (let i = 1; i < operands.length; ++i) {
+      expression += `${operations[i - 1]} ${operands[i]}`;
+      expression += i < operations.length - 1 ? " " : "";
+    }
+
+    return { expression, operands, operations, };
+  };
+
   handleInputSubmit = input => {
     this.props.addExpression(this.state.expression);
     this.props.submitAnswer(input);
+
+    this.setState(
+      this.getRandomMath(
+        this.state.opList, this.state.maxNumber
+      )
+    );
   };
 };
 
