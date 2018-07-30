@@ -18,10 +18,10 @@ class AnswerList extends React.Component {
       let containerKey=`${expressions[i]} = ${answers[i]}`;
       divs.push(
         <div className="expressionAnswerContainer" key={containerKey}>
-          <div className="answerListExpression">
+          <div className="answerListExpression expressionAnswerElement">
             {expressions[i]}
           </div>
-          <div className="answerListAnswer">
+          <div className="answerListAnswer expressionAnswerElement">
             {answers[i]}
           </div>
         </div>
