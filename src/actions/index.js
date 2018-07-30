@@ -1,15 +1,17 @@
-import { ADD_EXPRESSION, SUBMIT_ANSWER } from "actions/types";
+import {
+  ADD_SUBMISSION,
+} from "actions/types";
 
-export function submitAnswer(answer) {
-  return {
-    type: SUBMIT_ANSWER,
-    payload: answer
-  };
-}
+console.log(eval("1 + 2"));
 
-export function addExpression(expression) {
+export function addSubmission(answer, count, expression) {
   return {
-    type: ADD_EXPRESSION,
-    payload: expression
+    type: ADD_SUBMISSION,
+    payload: {
+      answer,
+      expression,
+      id: count,
+      solution: eval(expression),
+    }
   };
 }

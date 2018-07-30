@@ -1,8 +1,6 @@
 import { combineReducers } from "redux";
-import answersReducer from "reducers/answers";
-import expressionsReducer from "reducers/expressions";
+import submissionsReducer from "reducers/submissions";
 
 export default combineReducers({
-  answers: answersReducer,
-  expressions: expressionsReducer,
+  submissions: submissionsReducer,
 });

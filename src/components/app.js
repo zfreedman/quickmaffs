@@ -16,8 +16,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+    // state maintains math for current expression
     this.state = {
       expression: "",
+      expressionCount: 0,
       maxNumber: 5,
       opList: [OP_ADD],
       operands: [],
@@ -78,13 +80,22 @@ class App extends React.Component {
   };
 
   handleInputSubmit = input => {
-    this.props.addExpression(this.state.expression);
-    this.props.submitAnswer(input);
+    this.props.addSubmission(
+      input,
+      this.state.expressionCount,
+      this.state.expression
+    );
 
+    let { expression, operands, operations } = this.getRandomMath(
+      this.state.opList, this.state.maxNumber
+    );
     this.setState(
-      this.getRandomMath(
-        this.state.opList, this.state.maxNumber
-      )
+      {
+        expression,
+        expressionCount: this.state.expressionCount + 1,
+        operands,
+        operations,
+      }
     );
   };
 };

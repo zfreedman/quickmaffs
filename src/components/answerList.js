@@ -5,24 +5,22 @@ class AnswerList extends React.Component {
   render() {
     return (
       <div className="answerList">
-        {this.renderAnswers()}
+        {this.renderSubmissions()}
       </div>
     );
   }
 
-  renderAnswers = () => {
-    let answers = this.props.answers;
-    let expressions = this.props.expressions;
+  renderSubmissions = () => {
+    const submissions = this.props.submissions;
     let divs = [];
-    for (let i = 0; i < answers.length; ++i) {
-      let containerKey=`${expressions[i]} = ${answers[i]}`;
+    for (let i = 0; i < submissions.length; ++i) {
       divs.push(
-        <div className="expressionAnswerContainer" key={containerKey}>
+        <div className="expressionAnswerContainer" key={`${submissions[i].id}`}>
           <div className="answerListExpression expressionAnswerElement">
-            {expressions[i]}
+            {`${submissions[i].expression} = ${submissions[i].solution}`}
           </div>
           <div className="answerListAnswer expressionAnswerElement">
-            {answers[i]}
+            {submissions[i].answer}
           </div>
         </div>
       );
@@ -33,8 +31,7 @@ class AnswerList extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    answers: state.answers,
-    expressions: state.expressions,
+    submissions: state.submissions,
   };
 }
 
