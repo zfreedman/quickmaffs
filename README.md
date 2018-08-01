@@ -1,6 +1,9 @@
 # quickmaffs
 SPA React app for testing mental quick math abilities.
 
+## notes
+Currently, this repo only has a simple frontend UI, with no backend technology.
+
 ## install instructions
 From a command line or terminal window,
 1. type `git clone https://github.com/zfreedman/quickmaffs.git` to clone the git repository
